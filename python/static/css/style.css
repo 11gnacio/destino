@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Colores universales */
+
+:root {
+    --body: #0A0A20;
+    --card: #F2F2F3;
+    --degradeUno: #3A3953;
+    --degradeDos: #1E1D35;
+    --texto: #B1B1B4;
+    --titulo_descrip: #fff;
+    --circulo-degrade-uno: #6411E1;
+    --circulo-degrade-dos: #731BE1;
+}
+
+/* Cuerpo */
+body {
+    background: var(--body);
+}
+
+main {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    background: var(--card);
+    width: 500px;
+    height: 580px;
+    border-radius: 15px;
+}
+
+.uno {
+    width: 500px;
+    height: 200px;
+    background: linear-gradient(to right, var(--degradeUno), var(--degradeDos));
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.mm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-morado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, var(--circulo-degrade-uno), var(--circulo-degrade-dos));
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 4px 7px 15px 2px rgb(31, 30, 30);
+    margin: 20px;
+   
+}
+
+.txt h1, p {
+    color: var(--titulo_descrip);
+    text-align: center;
+}
+
+.txt {
+     display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+}
+
+.bi-moon {
+    
+    
+    color: var(--titulo_descrip);
+}
