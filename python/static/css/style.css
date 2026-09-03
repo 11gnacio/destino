@@ -1,86 +1,244 @@
-* {
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0d0e1b;
+    background-image: radial-gradient(#2d325a 1px, transparent 1px);
+    background-size: 32px 32px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
-    padding: 0;
+    color: #333;
+}
+
+.contenedor-principal {
+    background: #f8f9fa;
+    width: 440px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    padding-bottom: 24px;
+}
+
+.cabecera-juego {
+    background: linear-gradient(135deg, #2b2640, #1d1a2d);
+    color: white;
+    padding: 32px 20px;
+    text-align: center;
+}
+
+.simbolo-cabecera {
+    background: #6200ee;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 20px;
+}
+
+.simbolo-cabecera.simbolo-sol {
+    background: #fbc02d;
+    color: white;
+}
+
+.cabecera-juego h1 {
+    font-size: 22px;
+    margin: 0 0 4px 0;
+}
+
+.texto-introduccion {
+    font-size: 12px;
+    color: #a0a0b0;
+    margin: 0;
+}
+
+.formulario-destino {
+    padding: 24px;
+}
+
+.campo-formulario {
+    margin-bottom: 14px;
+}
+
+.zona-entrada {
+    display: flex;
+    align-items: center;
+    background: #f1f3f4;
+    border-radius: 8px;
+    padding: 0 14px;
+}
+
+.zona-entrada i {
+    color: #5f6368;
+    margin-right: 10px;
+    width: 16px;
+}
+
+.zona-entrada input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 14px;
+    outline: none;
+}
+
+.ayuda-campo {
+    display: block;
+    color: #80868b;
+    font-size: 11px;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+.contenedor-esfera {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.esfera-magica {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        #ffffff,
+        #a88beb 50%,
+        #6200ee
+    );
+    box-shadow: 0 10px 20px rgba(98, 0, 238, 0.3);
+}
+
+.boton-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    background: #6200ee;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
     box-sizing: border-box;
 }
 
-/* Colores universales */
-
-:root {
-    --body: #0A0A20;
-    --card: #F2F2F3;
-    --degradeUno: #3A3953;
-    --degradeDos: #1E1D35;
-    --texto: #B1B1B4;
-    --titulo_descrip: #fff;
-    --circulo-degrade-uno: #6411E1;
-    --circulo-degrade-dos: #731BE1;
+.boton-principal:hover {
+    background: #4b00b5;
 }
 
-/* Cuerpo */
-body {
-    background: var(--body);
+.mensaje-destino {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    margin: 20px 24px;
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center;
 }
 
-main {
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.mensaje-destino i {
+    color: #4caf50;
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
-.card {
-    background: var(--card);
-    width: 500px;
-    height: 580px;
-    border-radius: 15px;
+.mensaje-destino p {
+    margin: 0;
+    font-size: 13px;
+    color: #2e7d32;
+    font-weight: 500;
 }
 
-.uno {
-    width: 500px;
-    height: 200px;
-    background: linear-gradient(to right, var(--degradeUno), var(--degradeDos));
-    border-top-left-radius: 11px;
-    border-top-right-radius: 11px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.panel-informacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 24px;
 }
 
-.mm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.tarjeta-informativa {
+    background: white;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 11px;
+    color: #555;
 }
 
-.circulo-morado {
+.encabezado-tarjeta {
+    color: #6200ee;
+    font-weight: bold;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: linear-gradient(to right, var(--circulo-degrade-uno), var(--circulo-degrade-dos));
+    gap: 6px;
+}
+
+.muestra-color {
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    box-shadow: 4px 7px 15px 2px rgb(31, 30, 30);
-    margin: 20px;
-   
+    margin: 8px auto;
 }
 
-.txt h1, p {
-    color: var(--titulo_descrip);
+.texto-animal {
+    margin-top: 8px;
+}
+
+.seccion-fortuna {
     text-align: center;
+    margin: 20px 0;
 }
 
-.txt {
-     display: flex;
-    flex-direction: column;
+.seccion-fortuna h3 {
+    color: #6200ee;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.numero-afortunado {
+    background: #6200ee;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.descripcion-fortuna {
+    font-size: 11px;
+    color: #777;
+    margin-top: 8px;
+}
+
+.tarjeta-edad {
+    background: white;
+    border-left: 4px solid #6200ee;
+    margin: 0 24px 20px;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #444;
+}
+
+.mensaje-despedida {
     text-align: center;
-    gap: 10px;
+    font-size: 10px;
+    color: #888;
+    margin-top: 16px;
 }
 
-.bi-moon {
-    
-    
-    color: var(--titulo_descrip);
-}

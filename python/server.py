@@ -1,24 +1,38 @@
-import random
 from flask import Flask, render_template, request, session, redirect
+import random
 
 app = Flask(__name__)
+app.secret_key = "clave_secreta_destino"
 
-# Clave para manejar sesiones en Flask
-app.secret_key = "clave_secreta"
-
-# Lista de predicciones para el juego
-lista_predicciones = [
+PREDICCIONES = [
     "Encontrarás el verdadero amor en los próximos meses. Tu corazón se llenará de alegría.",
-    "Un gran cambio laboral o académico llegará pronto. Estás preparado para ganar.",
-    "Un viaje inesperado te revelará un secreto valioso sobre tu camino."
+    "Un viaje inesperado cambiará el rumbo de tus proyectos de forma positiva.",
+    "Pronto recibirás una noticia sobre tus finanzas que te traerá gran paz mental.",
+    "Una antigua amistad regresará a tu vida para ofrecerte una gran oportunidad."
 ]
 
-# Ruta principal que muestra el formulario para ingresar datos
-@app.route('/')
-def formulario_principal():
-    return render_template('index.html')
+@app.route("/")
+def index():
+    return render_template("index.html")
 
-#
+# Añade esta ruta que faltaba:
+@app.route("/enviar", methods=["POST"])
+def enviar():
+    session["nombre"] = request.form.get("nombre")
+    session["edad"] = request.form.get("edad")
+    session["color"] = request.form.get("color")
+    session["animal"] = request.form.get("animal")
+    
+    session["prediccion"] = random.choice(PREDICCIONES)
+    session["numero_suerte"] = random.randint(1, 100)
+    
+    return redirect("/futuro")
+
+@app.route("/futuro")
+def futuro():
+    if "nombre" not in session:
+        return redirect("/")
+    return render_template("futuro.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
